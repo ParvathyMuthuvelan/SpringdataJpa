@@ -12,8 +12,8 @@ public interface PersonService {
     Person editPerson(Person person);
     void deletePerson(Person person);
     void deletePerson(Long id);
-    public Person getPersonById(long id) throws InvalidIdException;
+    public Person getPersonById(long id) ;//throws InvalidIdException;
     List<Person> getAllPersons();
     long countPersons();
-    int updatePersonAge(int age,long id);
+ //   int updatePersonAge(int age,long id);
 }

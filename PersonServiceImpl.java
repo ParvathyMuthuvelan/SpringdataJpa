@@ -14,36 +14,37 @@ import com.springjpa.model.Person;
 
  
 @Service
-public class PersonServiceImpl implements PersonService {
+public class PersonServiceImpl implements PersonService 
+{
  
     @Autowired
     private PersonRepository personRepository;
- 
-    @Override
+
+   // @Override
     @Transactional
     public Person createPerson(Person person) {
         return personRepository.save(person);
     }
  
-    @Override
+   // @Override
     @Transactional
     public Person getPerson(Long id) {
         return personRepository.getOne(id);
     }
  
-    @Override
+    //@Override
     @Transactional
     public Person editPerson(Person person) {
         return personRepository.save(person);
     }
  
-    @Override
+   // @Override
     @Transactional
     public void deletePerson(Person person) {
         personRepository.delete(person);
     }
  
-    @Override
+   // @Override
     @Transactional
     public void deletePerson(Long id) {
         personRepository.deleteById(id);
@@ -51,26 +52,28 @@ public class PersonServiceImpl implements PersonService {
  
   
  
-    @Override
+    //@Override
     @Transactional
     public List<Person> getAllPersons() {
         return personRepository.findAll();
     }
  
-    @Override
+  // @Override
     public long countPersons() {
         return personRepository.count();
     }
     @Transactional
-    public Person getPersonById(long id) throws InvalidIdException{
+    public Person getPersonById(long id) //throws InvalidIdException
+    {
         Optional<Person> person = personRepository.findById(id);
-        return person.orElseThrow(() -> new InvalidIdException("Invalid Id: " + id));
+        return person.get();
+     //   return person.orElseThrow(() -> new InvalidIdException("Invalid Id: " + id));
     }
 
-	@Override
-	@Transactional
+//	@Override
+	/*@Transactional
 	public int updatePersonAge(int age,long id) {
 		int result=personRepository.updatePersonAge(age,id);
 		return result;
-	}
+	}*/
 }

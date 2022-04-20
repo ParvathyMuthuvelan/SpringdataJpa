@@ -1,15 +1,21 @@
 package com.springjpa.model;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
  
 @Entity
+@Table(name="person_info")
 public class Person {
  
     @Id
     @GeneratedValue
+    @Column(name="person_id")
     private Long id;
+    @Column(name="person_name")
     private String name;
+    @Column(name="person_age")
     private int age;
  
     public Person() {
